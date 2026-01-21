@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="gitlab" fetch="ssh://git@gitlab.com" revision="lineage-23.1" />
+  <project path="packages/apps/Bellis" name="CalyxOS/platform_packages_apps_Bellis" revision="staging/android16" />
+  <project path="device/xiaomi/sm8350-common" name="xiaomi-lisa-devs/android_device_xiaomi_sm8350-common" />
+  <project path="device/xiaomi/venus" name="xiaomi-lisa-devs/android_device_xiaomi_venus" />
+  <project path="hardware/xiaomi" name="LineageOS/android_hardware_xiaomi" />
+  <project path="kernel/xiaomi/sm8350" name="xiaomi-lisa-devs/android_kernel_qcom_sm8350" />
+  <project path="vendor/xiaomi/sm8350-common" name="xiaomi-lisa-devs/proprietary_vendor_xiaomi_sm8350-common" />
+  <project path="vendor/xiaomi/venus" name="xiaomi-lisa-devs/proprietary_vendor_xiaomi_venus" />
+  <project path="vendor/extra" name="itsvixano-dev/android/lineageos-personal/android_vendor_extra" remote="gitlab" revision="main" />
+  <project path="vendor/firmware" name="itsvixano-dev/android/lineageos-personal/proprietary_vendor_firmware" remote="gitlab" revision="main" />
+</manifest>

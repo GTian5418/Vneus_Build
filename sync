@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Var
+BRANCH=lineage-23.1
+
+# Sync & cleanup LineageOS repos
+repo init -u git@github.com:LineageOS/android.git --depth=1 -b ${BRANCH} --git-lfs -g default,-notdefault,-infra --no-clone-bundle
+repo forall -j$(nproc) -c 'git add . &>/dev/null; git stash &>/dev/null; git rebase --abort &>/dev/null; git reset --hard $(git rev-list --max-parents=0 HEAD) &>/dev/null; git clean -fd &>/dev/null; git checkout --detach HEAD &>/dev/null' || true
+repo sync -j$(nproc) -c --detach --force-sync --force-remove-dirty --no-tags --no-clone-bundle --retry-fetches=5  --jobs-checkout=$(nproc) --optimized-fetch --prune
+yes "y" | repo gc &>/dev/null
+
+# Apply patches from gerrit
+./picks
+
+# Apply personal patches
+APPLY_PATCHES=true . build/envsetup.sh
